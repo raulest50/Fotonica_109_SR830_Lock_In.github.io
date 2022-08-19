@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Intro SR830</title>
+
+  <!-- Mi hoja de estilos personal-->
+  <link rel="stylesheet" href="./estilo.css">
+  
+  <!-- PureCSS framework como alternativa a bootstrap. -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@2.1.0/build/pure-min.css" integrity="sha384-yHIFVG6ClnONEA5yB5DJXfW2/KC173DIQrYoZMEtBvGzmf0PKiGyNEqe9N6BNDBH" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu">
+
+  <!-- MathJax. basta con escribir en latex dentro de $$ $$ y ya mathjax se encarga de renderizar-->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
+</head>
+<body>
+
+    <div class="header">
+        <h1> Introduccion al Lock-In Amplifier SR830</h1>
+        <h3>Laboratorio de Fotonica 109 UnalMed (19/08/2022)</h3>
+    </div>
+
+    <div class="seccion">
+        <h2>Objetivo</h2>
+        <p1>
+            Este material pretende introducir al menejo del Lock-In Amplifier SR830 (LIA de ahora en adelante), explicar el principio 
+            basico de operacion del equipo y sus posibles aplicaciones en optica y fotonica.
+        </p1>
+    </div>
+
+    <div class="seccion">
+        <h2>
+            Para que sirve un Lock-In Aplifier
+        </h2>
+        <p>
+            Nos permite medir/detectar señales AC de muy baja amplitud aun si estan inmersas en mucho ruido.
+            es decir cuando el Signal Noise Ratio (SNR) es muy bajo.
+        </p>
+    </div>
+
+    <div class="seccion">
+        <h2> Cual es su Utilidad en Experimentos de Fotonica </h2>
+        <p>
+            Considere la figura 1, donde se representa un experimento para medir el coeficiente de 
+            absorcion de una muestra usando una sola fuente de luz y un detector.
+        </p> 
+        <p>
+            La fuente de luz puede ser o no monocromatica, pero en cualquier caso, si se trata de un
+            haz continuo, la intensidad medida por el detector sera constante.
+        </p>
+        <p>
+            Ya que otras fuentes de luz pueden incidir en el detector, se requiere de un metodo 
+            para distingir las variaciones de la intensidad debidas unicamente a la fuente de interes
+            que incide en la muestra.
+        </p>
+        <p>
+            Para este proposito se agrega un chopper, que no es 
+            mas que una rueda dentada, como se muestra en la figura 2. Esta al girar permite 
+            modular en forma de pulsos la fuente de luz propia del experimento.
+        </p>
+        <div class="pure-g">
+            <div class="pure-u-1-3">
+                <img src="./img1.PNG" class="pure-img" alt="">
+                <figcaption>Fig.1 Experimento para medir coeficiente de absorcion. Tomado de [1]</figcaption>
+            </div>
+            <div class="pure-u-1-3">
+                <img src="./chopper.PNG" class="pure-img" alt="">
+                <figcaption>Fig.2 Chopper. Tomado de https://www.salukitec.com/se3001-optical-chopper/</figcaption>
+            </div>
+            <div class="pure-u-1-3">
+                <img src="./img3.PNG" class="pure-img" alt="">
+                <figcaption>Fig.3 Medicion de coeficiente de absorcion usando chopper y LIA.Tomado de [1]</figcaption>
+            </div>
+        </div>
+
+        <p>
+            En la figura 3 se muestra el nuevo arreglo del experimento, que agrega el chopper y el LIA. 
+            Ahora, las variaciones en la intensidad corresponderan a la frecuencia de modulacion introducidas
+            por el chopper.
+        </p>
+
+        <p>
+            Aunque las variaciones de la intensidad sean muy debiles respecto a todas las posibles fuentes
+            de ruido, el LIA nos permitira recuperar la señal y asi poder estimar la cantidad de luz abosorbida 
+            por la muestra, por citar un ejemplo.
+        </p>
+    </div>
+
+    <div class="seccion">
+        <h2>Principio de Operacion del LIA</h2>
+
+        <p> 
+            Conociendo ya las motivaciones para el uso del LIA, es importante considerar los fundamentos
+            matematicos sobre los que se basa el intrumento, pero de manera superficial, ya que esta prentede
+            ser una introduccion rapida al manejo del intrumento. 
+        </p>
+
+        <p>
+            $$ x = {-b \pm \sqrt{b^2-4ac} \over 2a}. $$
+        </p>
+
+        <img src="./img4.PNG" class="pure-img" alt="">
+        <figcaption>Fig.4 Diagrama de bloques funcional del LIA SR 830. Tomado de </figcaption>
+
+    </div>
+
+    <div>
+        <h2>  </h2>
+    </div>
+
+    <div class="seccion">
+        <h2>Referencias</h2>
+        <ol type="1">
+            <li>Kloos, Gerhard. "Applications of lock-in amplifiers in optics." SPIE, 2018.</li>
+        </ol>
+    </div>
+
+    
+</body>
+</html>

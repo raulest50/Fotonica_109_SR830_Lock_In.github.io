@@ -1,0 +1,26 @@
+
+
+.header {
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    font-family: Ubuntu;
+    letter-spacing: .05em;
+    margin: 0 auto;
+    max-width: 768px;
+}
+
+div.seccion{
+    margin-bottom: 4em;
+}
+
+body{
+    font-family: Ubuntu;
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+figcaption{
+    font-family: Ubuntu;
+    color: cadetblue;
+    border-bottom: 1px solid #eee;
+}
