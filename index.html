@@ -12,7 +12,10 @@
 
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu">
 
-  <!-- MathJax. basta con escribir en latex dentro de $$ $$ y ya mathjax se encarga de renderizar-->
+  <!-- MathJax. basta con escribir en latex dentro de $$ $$ para ecuacion 
+    y ya mathjax se encarga de renderizar.
+    para inline math usar \(...\)
+    -->
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   
@@ -96,26 +99,63 @@
         <p> 
             Conociendo ya las motivaciones para el uso del LIA, es importante considerar los fundamentos
             matematicos sobre los que se basa el intrumento, pero de manera superficial, ya que esta prentede
-            ser una introduccion rapida al manejo del intrumento. 
+            ser una introduccion rapida al manejo del intrumento y se considera que el lector ya un curso 
+            sobre series de fourier.
         </p>
 
         <p>
-            $$ x = {-b \pm \sqrt{b^2-4ac} \over 2a}. $$
+            Consideremos la señal \( v(t)_{in} \) donde \( \omega_0 \) es la frecuencia de modulacion debida al 
+            chopper y \( v(t)_{noise} \) es el ruido.
+            $$ v(t)_{in} = v_0 sin(\omega_0 t + \phi) + v(t)_{noise} $$
+            La señal que se desea recuperar es \( v_0 sin(\omega_0 t + \phi) \) .
+            Por la teoria de series de fourier se sabe que la señal de ruido \( v(t)_{noise} \) se puede 
+            descomponer como una suma infinita de señales seno y coseno. Tambien de los cursos 
+            sobre series de fourier, sabemos que si multiplicamos \( v(t)_{in} \) por una sinusoidal de frecuencia
+            \( \omega_0 \) e integramos, todas las componentes de ruido se desvanencen, ya que son de frecuencias
+            diferentes y solo nos queda las variaciones relacionadas con la frecuencia \( \omega_0 \) . 
+            De esta forma, aunque la amplitud de la señal que queremos recuperar sea muy debil y aunque 
+            este inmersa en mucho ruido, es posible usar la propiedad de ortogonalidad entre señales seno de 
+            difente frecuencia para recuperarla.
+        </p>
+        <p>
+            Para el lector que no este familiarizado con las series de fourier puede verificar en el siguiente
+            ejemplo de wolfram alpha y variar las frecuencias de ambas sinusoidales (siempre numeros enteros).
+            <a href="https://www.wolframalpha.com/input?i=integrate+%28sin%282+t%29+sin%284+t%29%2C+0%2C+2+pi%29"> Ejemplo Wolfram </a>
+        </p>
+
+        <p>
+            En la figura 4 se muestra el diagrama bloques funcional del LIA SR 830. En este diagrama de bloques 
+            consideremos la señal "A" como \( v(t)_{in} \) . La señal "Reference" corresponderia a la sinusoidal
+            que usaremos para hacer la multiplicacion con "A". En caso de usar otro tipo de señal como una cuadrada,
+            el PLL y el oscilador interno generaran la sinusoidal pura a partir de 
+            la cuadrada. Pero al final siempre sera una seno pura la se multiplique con A.
+        </p>
+
+        <p>
+            Debido a que no se conoce la fase \( \phi \) ,  entonces la multiplicacion se hace no solo con una 
+            referencia seno pura, sino que se hace un desfase de 90 grados para obtener una coseno. Al aplicar 
+            el mismo principio del producto con seno y conseno se puede obtener la magnitud y la fase de la 
+            señal que se desea recuperar.
         </p>
 
         <img src="./img4.PNG" class="pure-img" alt="">
-        <figcaption>Fig.4 Diagrama de bloques funcional del LIA SR 830. Tomado de </figcaption>
+        <figcaption>Fig.4 Diagrama de bloques funcional del LIA SR 830. Tomado de [2]</figcaption>
 
     </div>
 
     <div>
-        <h2>  </h2>
+        <h2> Operacion SR 830 con Ejemplos </h2>
+        
+        <p>
+
+        </p>
     </div>
 
     <div class="seccion">
         <h2>Referencias</h2>
         <ol type="1">
             <li>Kloos, Gerhard. "Applications of lock-in amplifiers in optics." SPIE, 2018.</li>
+            <li>Manual de Usuario SR 830 : <a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwjjpKq1ztP5AhWRZjABHS_pCREQFnoECAQQAQ&url=https%3A%2F%2Fwww.thinksrs.com%2Fdownloads%2Fpdfs%2Fmanuals%2FSR830m.pdf&usg=AOvVaw1k4nD5NmPxv5qSqPzQdLTy</li>">Link</a> 
         </ol>
     </div>
 
