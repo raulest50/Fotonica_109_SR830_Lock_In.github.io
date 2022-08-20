@@ -37,7 +37,7 @@
 
     <div class="seccion">
         <h2>
-            Para que sirve un Lock-In Aplifier
+            Para que sirve un Lock-In Amplifier
         </h2>
         <p>
             Nos permite medir/detectar señales AC de muy baja amplitud aun si estan inmersas en mucho ruido.
@@ -145,10 +145,107 @@
 
     <div>
         <h2> Operacion SR 830 con Ejemplos </h2>
-        
-        <p>
 
+        <h3>Ejemplo 1</h3>
+
+        <p>
+            Como ya se explico anteriormente el LIA espera a su entrada una señal de referencia y 
+            la señal que se desea estudiar. Para el caso del modelo SR830, la señal de referencia
+            puede ser generada con un circuito o externo o usar el generador interno del LIA.
+            En la figura 5 se muestra el panel frontal del LIA
         </p>
+
+        <p>
+            En la parte derecha, donde se ve el 4400, es la seccion donde se puede configurar la señal
+            de referencia interna, su frecuencia, amplitud y fase. Si se desea usar una señal de referencia
+            externa como una señal cuadrada entonces se oprime el boton source. Ya el LIA internamente se 
+            encarga de generar una seno pura a partir de la señal cuadrada por medio del PLL y el oscilador.
+        </p>
+
+        <p>
+            En la seccion de Channel One y Channel Two se puede visualizar el resultado de la medicion.
+            con los botones DISPLAY y OUTPUT se puede seleccionar si se visualiza la componente frecuancial
+            en coordenadas cartesianas o polares. En caso de escoger coordenadas X y Y, una componente 
+            correspondera a la seno y el otro al coseno. 
+        </p>
+
+        <p>
+            Si se selecciona en coordenadas polares entonces CH1 mostrara la magnitud y CH2 la fase.
+        </p>
+
+        <p>
+            En CH1 y CH2 solamente se entrega las componentes X Y o R y \( \theta \) en forma analogica.
+        </p>
+
+        <p>
+            Para empezar a familiarizarnos, configurar una señal seno de 5khz con ayuda de un generador de 
+            señales y un osciloscopio si lo cree conveniente. 
+        </p>
+
+        <p>
+            Encender el LIA mientras se mantiene presionado el boton SETUP. Esto hace un reset del equipo, para
+            iniciar con lo valores de fabrica.
+        </p>
+
+        <p>
+            Connectar la señal del generador de señales al puerto A/I. Seguido de esto se usa la referencia
+            interna del LIA y se hace un barrido de frecuencias pasando por 5Khz para corroborar que las
+            mediciones de los canales X Y son 0 excepto en 5Khz. Esto se debe a que el producto entre 2 senos
+            siempre tendra un promedio cero a menos que ambas senos sean de la misma frecuencia.
+        </p>
+
+        <p>
+            Se puede notar en las componenentes X y Y puede haber una oscilacion. Esto se debe a que las 
+            frecuencias de la referencia y la señal de entrada pueden estar muy cercanas pero no son exactamente
+            iguales.
+        </p>
+
+        <p>
+            En el puerto SINE OUT el LIA entrega la señal de referencia interna de forma analogica. Connectar
+            esta referencia interna en A/I en lugar del generador de señales y observar que esta oscilacion ya 
+            no ocurre. Esto se debe a que en este caso la señal de entrada y referencia al ser las mismas,
+            entonces si tienen exactamente la misma frecuencia
+        </p>
+
+        <p>
+            Por esto, puede resultar mas conveniente visualizar en coordenadas R \( \theta \) , ya que 
+            esto nos permitira visualizar la magnitud en esa frecuencia sin oscilaciones. Corroborar
+            esto conectando nuevamente el geneador y usando los botones DISPLAY y OUTPUT del panel CH1
+        </p>
+
+        <p>
+            Si se desea se puede conectar a un osciloscopio las salidas del CH1 y CH2 para corroborar
+            que corresponden al mismo valor mostrado en el panel pero en formato analogico.
+        </p>
+
+        <div class="pure-g">
+            <div class="pure-u-1-3">
+                <img src="./t1.jpg" class="pure-img" alt="">
+                <figcaption>Fig.5 Lock-In Amplifier SR830</figcaption>
+            </div>
+            <div class="pure-u-1-3">
+                <img src="./tsine.jpg" class="pure-img" alt="">
+                <figcaption>Fig.6 Se configura una sinusoidal de 5khz con ayuda de un generador de señales</figcaption>
+            </div>
+            <div class="pure-u-1-3">
+                <img src="./sine_mag.jpg" class="pure-img" alt="">
+                <figcaption>Fig.3 Medicion con LIA a la frecuencia de 5khz</figcaption>
+            </div>
+        </div>
+
+        <h3>Ejemplo 2</h3>
+
+        <p>
+            Considere la señal diente de sierra que se muestra a continuacion:
+        </p>
+
+        <img src="./triangle_series.PNG" class="pure-img" alt="">
+        <figcaption>Fig.5 Serie de fourier truncada para la señal diente de sierra</figcaption>
+
+        <img src="./coefficients.PNG" class="pure-img" alt="">
+        <figcaption>Table.1 Los 10 primeros coeficientes de la serie de fourier en valor RMS 
+            para la señal diente de sierra</figcaption>
+
     </div>
 
     <div class="seccion">
