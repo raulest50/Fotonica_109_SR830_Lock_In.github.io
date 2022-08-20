@@ -236,7 +236,8 @@
         <h3>Ejemplo 2</h3>
 
         <p>
-            Considere la señal diente de sierra que se muestra a continuacion:
+            Considere la señal diente de sierra que se muestra a continuacion y su respectiva descomposicion
+            en series de fourier.
         </p>
 
         <img src="./triangle_series.PNG" class="pure-img" alt="">
@@ -245,6 +246,36 @@
         <img src="./coefficients.PNG" class="pure-img" alt="">
         <figcaption>Table.1 Los 10 primeros coeficientes de la serie de fourier en valor RMS 
             para la señal diente de sierra</figcaption>
+
+        <p>
+            En <a href="https://github.com/raulest50/Fotonica_109_SR830_Lock_In.github.io">Link</a> en el
+            archivo FourierSeries_example_1.nb, se encuentra un script de mathematica que explica la
+            descomposicion de forma mas detallada. 
+        </p>
+
+        <p>
+            Por ahora solo consideremos que si se configura una diente de sierra con una amplitud 
+            pico a pico de 2.2 v, las magnitudes de sus armonicos en valor RMS seran aproximadamente 
+            los que se muestra en la tabla.
+        </p>
+
+        <p>
+            Conectar el generador nuevamente en A/I y usar la referencia interna del LIA para hacer un
+            barrido de frecuencias. Se recomienda escoger una frecuencia entre 1kHz y 10kHz en el generador 
+            de señales. Si se escoge por ejemplo 2.2khz para la diente de sierra entonces su primera componente 
+            estaria en 2200, la segunda en 4400, la tercera en 6600 etc.
+        </p>
+
+        <p>
+            Comprobar que la magnitud R a estas frecuencias concuerda con los valores de la tabla.
+        </p>
+
+        <p>
+            Estos 2 ejemplos deberian permitir, al que trabaja con el LIA por primera vez, tener un entendiemiento
+            basico e intuitivo sobre su manejo, operacion y aplicaciones. para produndizar mas se 
+            recomienda leer el manual del fabricante [2], que se puede encontrar facilmente en google y tambien 
+            consultar la referencia [1] si es posible.
+        </p>
 
     </div>
 
